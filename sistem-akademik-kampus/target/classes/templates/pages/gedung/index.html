@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Gedung-index</title>
+</head>
+<body>
+<div class="row mb-2" layout:fragment="breadcrumb">
+    <div class="col-sm-6">
+        <h1 class="m-0">GEDUNG</h1>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item">Gedung</li>
+        </ol>
+    </div>
+</div>
+<div class="row" layout:fragment="content">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-header bg-gradient-yellow">
+                <h3 class="card-title">Gedung</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 200px;">
+                        <input type="text" name="table_search" class="form-control float-lg-left btn-outline-dark" placeholder="Search">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-outline-dark">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <a th:href="@{~/gedung/add}" id="btn-add" class="btn btn-outline-dark">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="table-data" class="table">
+                    <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Jumlah Lantai</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="gedung :${dataList}">
+                        <td class="font-weight-bold" th:text="${gedung.code}"></td>
+                        <td class="font-weight-bold" th:text="${gedung.name}"></td>
+                        <td class="font-weight-bold" th:text="${gedung.jumlahLantai}"></td>
+                        <td>
+                            <a th:href="@{~/gedung/edit/{id}(id=${gedung.id})}"
+                                class="btn btn-xs btn-outline-success btn-edit">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a th:href="@{~/gedung/delete/{id}(id=${gedung.id})}"
+                                class="btn btn-xs btn-outline-danger">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                            <a th:href="@{~/gedung/detail/{id}(id=${gedung.id})}"
+                                class="btn btn-xs btn-outline-info btn-detail">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

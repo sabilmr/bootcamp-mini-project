@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Kelas</title>
+</head>
+<body>
+<div class="row mb-2" layout:fragment="breadcrumb">
+    <div class="col-sm-6">
+        <h2 class="m-0">Edit Kelas</h2>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Edit Kelas</li>
+        </ol>
+    </div>
+</div>
+<div class="row" layout:fragment="content">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card card-yellow">
+            <div class="card-header">
+                <h3 class="card-title">Edit Kelas</h3>
+            </div>
+            <form th:action="@{~/kelas/update}" method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Code :</label><br>
+                        <input type="text" class="form-control" name="code" th:value="${kelas.code}" placeholder="Enter Code"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name Hari :</label><br>
+                        <input type="text" class="form-control" name="nameHari" th:value="${kelas.nameHari}"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Jam Mulai :</label><br>
+                        <input type="text" class="form-control" name="jamMulai" th:value="${kelas.jamMulai}" placeholder="Enter Jam Mulai"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Jam Selesai :</label><br>
+                        <input type="text" class="form-control" name="jamSelesai" th:value="${kelas.jamSelesai}" placeholder="Enter Jam Selesai"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status :</label><br>
+                        <input type="text" class="form-control" name="status" th:value="${kelas.status}" placeholder="Enter Status"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Semester :</label><br>
+                        <input type="text" class="form-control" name="semester" th:value="${kelas.semester}" placeholder="Enter Semester"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tahun Ajaran :</label><br>
+                        <input type="text" class="form-control" name="tahunAjaran" th:value="${kelas.tahunAjaran}" placeholder="Enter Tahun Ajaran"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kuota :</label><br>
+                        <input type="text" class="form-control" name="kuota" th:value="${kelas.kuota}" placeholder="Enter Kuota"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bisa Online :</label><br>
+                        <input type="text" class="form-control" name="bisaOnline" th:value="${kelas.bisaOnline}"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name Ruang :</label><br>
+                        <input type="text" class="form-control" name="ruangName" th:value="${kelas.ruangName}"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name Dosen :</label><br>
+                        <input type="text" class="form-control" name="dosenName" th:value="${kelas.dosenName}"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name Mata Kuliah :</label><br>
+                        <input type="text" class="form-control" name="mataKuliahName" th:value="${kelas.mataKuliahName}"><br>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-outline-warning" th:href="@{~/kelas}">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

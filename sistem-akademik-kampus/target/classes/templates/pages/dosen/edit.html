@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Dosen</title>
+</head>
+<body>
+<div class="row mb-2" layout:fragment="breadcrumb">
+    <div class="col-sm-6">
+        <h2 class="m-0">Edit Dosen</h2>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Edit Dosen</li>
+        </ol>
+    </div>
+</div>
+<div class="row" layout:fragment="content">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card card-yellow">
+            <div class="card-header">
+                <h3 class="card-title">Edit Dosen</h3>
+            </div>
+            <form th:action="@{~/dosen/update}" method="post">
+                <input type="hidden" id="id" name="id" th:value="${dosen.id}">
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Nip :</label><br>
+                        <input type="text" class="form-control" id="nip" name="nip" th:value="${dosen.nip}" placeholder="Enter Nip"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name :</label><br>
+                        <input type="text" class="form-control" id="name" name="name" th:value="${dosen.name}" placeholder="Enter name"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Jenis Kelamin :</label><br>
+                        <select name="jk" class="form-control">
+                            <option value="">Pilih Gender</option>
+                            <option value="Pria">Pria</option>
+                            <option value="Wanita">Wanita</option>
+                        </select><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Alamat :</label><br>
+                        <input type="text" class="form-control" id="alamat" name="alamat" th:value="${dosen.alamat}" placeholder="Enter alamat"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gelar :</label><br>
+                        <input type="text" class="form-control" id="gelar" name="gelar" th:value="${dosen.gelar}" placeholder="Enter gelar"><br>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-warning" type="submit">Save</button>
+                    <a class="btn btn-outline-warning" th:href="@{~/dosen}">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

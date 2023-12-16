@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Kelas Detail</title>
+</head>
+<body>
+<div class="row mb-2" layout:fragment="breadcrumb">
+    <div class="col-sm-6">
+        <h1 class="m-0">Add Kelas Detail</h1>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Add Detail Kelas</li>
+        </ol>
+    </div>
+</div>
+<div class="row" layout:fragment="content">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card card-yellow">
+            <div class="card-header">
+                <h3 class="card-title">New Kelas Detail</h3>
+            </div>
+            <form th:action="@{~/kelasdetail/save}" method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Kelas :</label><br>
+                        <select name="kelasId" class="form-control">
+                            <option value="">Pilih Kelas</option>
+                            <option th:each="kelas :${dataKelas}"
+                                    th:value="${kelas.id}" th:text="|${kelas.code} - ${kelas.mataKuliahName}|"></option>
+                        </select><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name Mahasiswa :</label><br>
+                        <select name="mahasiswaId" class="form-control">
+                            <option value="">Pilih Mahasiswa</option>
+                            <option th:each="mahasiswa :${dataSiswa}"
+                                    th:value="${mahasiswa.id}"
+                                    th:text="|${mahasiswa.name} - ${mahasiswa.jurusanName}|"></option>
+                        </select><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status :</label><br>
+                        <input type="text" class="form-control" name="status" placeholder="Enter Status"><br>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-warning" type="submit">Save</button>
+                    <a class="btn btn-outline-warning" th:href="@{~/kelasdetail}">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

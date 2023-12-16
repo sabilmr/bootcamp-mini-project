@@ -1,0 +1,5 @@
+# Created at 2023-12-05T14:46:34.525
+Boot Manifest-JAR contains absolute paths in classpath 'D:\mini-project\nortwind-app\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

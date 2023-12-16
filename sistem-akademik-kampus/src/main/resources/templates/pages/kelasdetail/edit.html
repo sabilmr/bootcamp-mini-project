@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Kelas Detail</title>
+</head>
+<body>
+<div class="row mb-2" layout:fragment="breadcrumb">
+    <div class="col-sm-6">
+        <h2 class="m-0">Edit Kelas Detail</h2>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Edit Kelas Detail</li>
+        </ol>
+    </div>
+</div>
+<div class="row" layout:fragment="content">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card card-yellow">
+            <div class="card-header">
+                <h3 class="card-title">Edit Detail Kelas</h3>
+            </div>
+            <form th:action="@{~/kelasdetail/update}" method="post">
+                <input type="hidden" name="id" th:value="${kelasDetail.id}">
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Kelas :</label><br>
+                        <select name="kelasId" class="form-control">
+                            <option value="">Pilih Kelas</option>
+                            <option th:each="kelas :${dataKelas}"
+                                    th:value="${kelas.id}"
+                                    th:text="|${kelas.code} - ${kelas.mataKuliahName}|"
+                                    th:selected="${kelasDetail.kelasId == kelas.id}"></option>
+                        </select><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name Mahasiswa :</label><br>
+                        <select name="mahasiswaId" class="form-control">
+                            <option value="">Pilih Mahasiswa</option>
+                            <option th:each="mahasiswa :${dataSiswa}"
+                                    th:value="${mahasiswa.id}"
+                                    th:text="|${mahasiswa.name} - ${mahasiswa.jurusanName}|"
+                                    th:selected="${kelasDetail.mahasiswaId == mahasiswa.id}"></option>
+                        </select><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status :</label><br>
+                        <input type="text" class="form-control" name="status" th:value="${kelasDetail.status}" placeholder="Enter Status"><br>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-warning" type="submit">Save</button>
+                    <a class="btn btn-outline-warning" th:href="@{~/kelasdetail}">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

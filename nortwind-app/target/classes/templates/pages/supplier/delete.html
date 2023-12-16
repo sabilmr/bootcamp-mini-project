@@ -1,0 +1,92 @@
+<div class="card card-danger">
+    <div class="card-header">
+        <h3 class="card-title">Delete Supplier</h3>
+    </div>
+    <form th:action="@{~/supplier/delete-save}" method="post" class="form-horizontal">
+        <input type="hidden" name="id" th:value="${supplier.id}">
+
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="companyName" class="col-sm-2 col-form-label">Company Name</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.companyName}" class="form-control" name="companyName" id="companyName" placeholder="Supplier Company Name">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="contactName" class="col-sm-2 col-form-label">Contact Name</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.contactName}" class="form-control" name="contactName" id="contactName" placeholder="Supplier Contact Name">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="contactTitle" class="col-sm-2 col-form-label">Contact Title</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.contactTitle}" class="form-control" name="contactTitle" id="contactTitle" placeholder="Supplier Contact Title">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="address" class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.address}" class="form-control" name="address" id="address" placeholder="Supplier address">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="city" class="col-sm-2 col-form-label">City</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.city}" class="form-control" name="city" id="city" placeholder="Supplier city">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="region" class="col-sm-2 col-form-label">Region</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.region}" class="form-control" name="region" id="region" placeholder="Supplier Region">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="postalCode" class="col-sm-2 col-form-label">Postal Code</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.postalCode}" class="form-control" name="postalCode" id="postalCode" placeholder="Supplier Postal code">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="country" class="col-sm-2 col-form-label">Country</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.country}" class="form-control" name="country" id="country" placeholder="Supplier Country">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.phone}" class="form-control" name="phone" id="phone" placeholder="Supplier Country">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fax" class="col-sm-2 col-form-label">Fax</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.fax}" class="form-control" name="fax" id="fax" placeholder="Supplier Fax">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="homepage" class="col-sm-2 col-form-label">Homepage</label>
+                <div class="col-sm-10">
+                    <input type="text" th:value="${supplier.homepage}" class="form-control" name="homepage" id="homepage" placeholder="Supplier Homepage">
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-outline-danger">Delete</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+        </div>
+    </form>
+</div>

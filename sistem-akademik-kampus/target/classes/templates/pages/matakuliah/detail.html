@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Mata Kuliah</title>
+</head>
+<body>
+<div class="row mb-2" layout:fragment="breadcrumb">
+    <div class="col-sm-6">
+        <h2 class="m-0">Detail Mata Kuliah</h2>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Detail Mata Kuliah</li>
+        </ol>
+    </div>
+</div>
+<div class="row" layout:fragment="content">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card card-yellow">
+            <div class="card-header">
+                <h3 class="card-title">Detail Mata KUliah</h3>
+            </div>
+            <form th:action="@{~/matakuliah/update}" method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Code :</label><br>
+                        <input type="text" class="form-control" name="code" th:value="${mataKuliah.code}"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name :</label><br>
+                        <input type="text" class="form-control" name="name" th:value="${mataKuliah.name}"><br>
+                    </div>
+
+                    <div class="form-group">
+                        <label>SKS :</label><br>
+                        <input type="text" class="form-control" name="sks" th:value="${mataKuliah.sks}"><br>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-outline-warning" th:href="@{~/matakuliah}">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
